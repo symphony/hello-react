@@ -2,23 +2,31 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const Button = (props) => {
-  // your code here
-};
+import Button from './components/Button';
+import Input from './components/Input';
 
 const Application = () => {
+  // States
+  const [name, setName] = useState('');
+  const [input, setInput] = useState('');
 
-  // your code here
 
-  const reset = () => {
-    console.log("reset");
-    // your code here
+  // Events
+  const onChange = (e) => {
+    setName(e.target.value);
   };
 
+  const reset = () => {
+    setInput('');
+  };
+
+
+  // Main App Render
   return (
     <main>
-      {/* your code here -- this entire line including the curly braces can be removed */}
-      <h1>Hello React</h1>
+      <Input onChange={onChange} placeholder="Type your name"/>
+      <Button onClick={reset} >Reset</Button>
+      <h1>Hello {name}</h1>
     </main>
   );
 };

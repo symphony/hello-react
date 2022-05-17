@@ -1,7 +1,5 @@
-const Input = ({ placeholder, reset }) => (
-  <input type="text" onChange={reset} placeholder={placeholder}>
-
-  </input>
+const Input = (props) => (
+  <input {...props} />
 );
 
 export default Input;

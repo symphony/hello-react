@@ -6,10 +6,9 @@ import Button from './components/Button';
 import Input from './components/Input';
 
 const Application = () => {
+
   // States
   const [name, setName] = useState('');
-  const [input, setInput] = useState('');
-
 
   // Events
   const onChange = (e) => {
@@ -17,16 +16,16 @@ const Application = () => {
   };
 
   const reset = () => {
-    setInput('');
+    setName('');
   };
 
 
   // Main App Render
   return (
     <main>
-      <Input onChange={onChange} placeholder="Type your name"/>
-      <Button onClick={reset} >Reset</Button>
-      <h1>Hello {name}</h1>
+      <Input value={name} onChange={onChange} placeholder="Type your name"/>
+      <Button onClick={reset}>Reset</Button>
+      {name && <h1>Hello {name}</h1>}
     </main>
   );
 };
